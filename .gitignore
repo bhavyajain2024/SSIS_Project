@@ -1,5 +1,5 @@
 #Ignore the log files
-ErrorLogs/
+errorLog_*.csv
 
 # Visual Studio temporary files
 .vs/
