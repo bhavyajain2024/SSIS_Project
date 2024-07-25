@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="161"
-  DTS:VersionGUID="{30BC4720-48E4-46BE-8DBE-721C922E7B19}">
+  DTS:VersionBuild="163"
+  DTS:VersionGUID="{8F569432-5495-4964-A788-33C09F443632}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4284,11 +4284,11 @@ where [refTable].[UserID] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="212.8,41.6"
           Id="Package\Production Database Backup"
-          TopLeft="480.499974047145,623.299998485446" />
+          TopLeft="558.624969778583,638.466665046645" />
         <NodeLayout
           Size="132.8,41.6"
           Id="Package\Data Cleaning\Date Check"
@@ -4403,30 +4403,30 @@ where [refTable].[UserID] = ?</property>
           PanelSize="210.4,432"
           Size="210.4,43.2"
           Id="Package\Data Cleaning"
-          TopLeft="350.833314164646,262.866664838725" />
+          TopLeft="428.958309896084,278.033331399924" />
         <NodeLayout
           Size="242.4,41.6"
           Id="Package\Data Extraction and Transformation"
-          TopLeft="337.999981833002,165.300000221133" />
+          TopLeft="416.12497756444,180.466666782333" />
         <NodeLayout
           Size="158.4,41.6"
           Id="Package\Incremental Load"
-          TopLeft="497.499972817799,457.733332548009" />
+          TopLeft="575.624968549237,472.899999109209" />
         <NodeLayout
           Size="236,41.6"
           Id="Package\Output Errors From Data Cleaning"
-          TopLeft="165.499991257986,459.833332493768" />
+          TopLeft="243.624986989424,474.999999054968" />
         <NodeLayout
           Size="174.4,41.6"
           Id="Package\Truncate Error Table"
-          TopLeft="196.33332290666,549.499999949931" />
+          TopLeft="274.458318638098,564.66666651113" />
         <NodeLayout
           Size="166.4,41.6"
           Id="Package\Truncate Stg Table"
-          TopLeft="499.666639666591,545.833332602249" />
+          TopLeft="577.791635398029,560.999999163448" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="457.616647998824,206.900000221133">
+          TopLeft="535.741643730262,222.066666782333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4448,7 +4448,7 @@ where [refTable].[UserID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="456.033314164646,306.066664838725">
+          TopLeft="534.158309896084,321.233331399924">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4482,7 +4482,7 @@ where [refTable].[UserID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="405.433314164646,306.066664838725">
+          TopLeft="483.558309896084,321.233331399924">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4516,7 +4516,7 @@ where [refTable].[UserID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="579.783306242195,499.333332548009">
+          TopLeft="657.908301973633,514.499999109209">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4538,7 +4538,7 @@ where [refTable].[UserID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="283.516657082323,501.433332493768">
+          TopLeft="361.641652813761,516.599999054968">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4560,7 +4560,7 @@ where [refTable].[UserID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="584.883306856868,587.433332602249">
+          TopLeft="663.008302588306,602.599999163448">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4583,10 +4583,10 @@ where [refTable].[UserID] = ?</property>
         <NodeLayout
           Size="264.8,41.6"
           Id="Package\Staging Database Backup After Cleanup"
-          TopLeft="600.833300505249,346.53333093471" />
+          TopLeft="678.958296236687,361.69999749591" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="506.633314164646,306.066664838725">
+          TopLeft="584.758309896084,321.233331399924">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4621,14 +4621,14 @@ where [refTable].[UserID] = ?</property>
         <NodeLayout
           Size="207.2,41.6"
           Id="Package\Backup after data extraction"
-          TopLeft="27.1666654828524,165.166668816341" />
+          TopLeft="105.291661214291,180.33333537754" />
         <NodeLayout
           Size="226.4,41.6"
           Id="Package\Backup Initial State of Database"
-          TopLeft="342.166648272012,0.16667085938915" />
+          TopLeft="420.29164400345,15.3333374205887" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="337.999981833002,186.033334518737">
+          TopLeft="416.12497756444,201.200001079937">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4651,10 +4651,10 @@ where [refTable].[UserID] = ?</property>
         <NodeLayout
           Size="195.2,41.6"
           Id="Package\Initial Setup of DB Tables"
-          TopLeft="364.486795053567,80.0333328150379" />
+          TopLeft="442.611790785005,95.1999993762374" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="458.726721662789,41.7666708593892">
+          TopLeft="536.851717394228,56.9333374205887">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4676,7 +4676,7 @@ where [refTable].[UserID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="460.643388443284,121.633332815038">
+          TopLeft="538.768384174723,136.799999376237">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4696,6 +4696,83 @@ where [refTable].[UserID] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="Taking Backup of the Database before starting any work on it"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="351.2,60"
+          Id="6096d97f-b7da-45f7-aae9-a943993f2298"
+          TopLeft="683.333295997647,1.08333332579997" />
+        <AnnotationLayout
+          Text="Creating all the required tables for the project if not already made&#xD;&#xA;"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="376.8,60"
+          Id="7321be5b-2020-4e41-acb3-f870494ab881"
+          TopLeft="681.249962778143,84.4999994123976" />
+        <AnnotationLayout
+          Text="Extracting data from the source and converting it to usable data type"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="392.8,60"
+          Id="e19dbd75-b176-4624-b779-a878a1ca4dfb"
+          TopLeft="689.583295656163,168.999998824795" />
+        <AnnotationLayout
+          Text="Creating a backup after transformation"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="234.4,60"
+          Id="b0630709-f212-4acb-a72b-49f4ecad3729"
+          TopLeft="90.6249950484685,218.833331811594" />
+        <AnnotationLayout
+          Text="Cleaning the extracted data using sql scripts"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="261.6,60"
+          Id="51e68ebd-559f-4aca-b4c7-fdfdf4f3e6ae"
+          TopLeft="647.916631266062,277.333331404792" />
+        <AnnotationLayout
+          Text="Creating a database backup &#xD;&#xA;after cleanup of extracted data"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="191.2,60"
+          Id="b0a458d8-3e0a-40dc-9965-3c38ed03e042"
+          TopLeft="901.041617435923,405.166663849188" />
+        <AnnotationLayout
+          Text="Loading the cleaned data in increments to production table"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="343.2,60"
+          Id="bfca17da-053f-487d-8938-f45318432a72"
+          TopLeft="730.20829343651,477.749996677786" />
+        <AnnotationLayout
+          Text="Cleaning the staging table after loading new data to production,&#xD;&#xA;this will prepare the staging table again for fresh input."
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="368.8,60"
+          Id="770891c4-ab20-40b1-a56c-5f0ccc6b9e62"
+          TopLeft="748.958292412056,551.416662832184" />
+        <AnnotationLayout
+          Text="Outputting all the found errors&#xD;&#xA;with meaningful messages to a flat file"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="232,60"
+          Id="04379cae-8749-4a15-b772-f4afe568a01b"
+          TopLeft="78.1249957314384,409.499997152388" />
+        <AnnotationLayout
+          Text="Cleaning the Error holding table for fresh data, as all&#xD;&#xA;the previous data has been exported to a flat file so it is&#xD;&#xA;of no use now."
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="322.4,72"
+          Id="3a6c6d9d-5724-480f-bfdd-679677aea1f3"
+          TopLeft="193.708322804215,605.583329122183" />
+        <AnnotationLayout
+          Text="Creating a final backup of the production table"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="276.8,60"
+          Id="8205dc40-0b5c-4bd1-9d2f-83a828c98fde"
+          TopLeft="536.416637412791,684.66666190558" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
