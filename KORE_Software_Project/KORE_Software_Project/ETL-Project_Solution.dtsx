@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="166"
-  DTS:VersionGUID="{199240C4-F174-427A-B7FA-0A122584A069}">
+  DTS:VersionBuild="167"
+  DTS:VersionGUID="{FA973544-EBD7-4174-94B2-D235C711003B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4072,7 +4072,7 @@ where [refTable].[UserID] = ?</property>
           SQLTask:BackupDeviceType="2"
           SQLTask:BackupPhysicalDestinationType="2"
           SQLTask:BackupDestinationType="0"
-          SQLTask:BackupDestinationAutoFolderPath="C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\Production"
+          SQLTask:BackupDestinationAutoFolderPath="C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup"
           SQLTask:BackupActionForExistingBackups="0"
           SQLTask:BackupCreateSubFolder="False"
           SQLTask:BackupFileExtension=""
