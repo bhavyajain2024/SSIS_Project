@@ -1,0 +1,15 @@
+#Ignore the log files
+ErrorLogs/
+
+# Visual Studio temporary files
+.vs/
+*.vs/
+*.vscode/
+*.suo
+*.user
+*.userosscache
+*.suo
+
+# Build outputs
+bin/
+obj/
