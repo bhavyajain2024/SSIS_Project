@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="205"
-  DTS:VersionGUID="{8789704D-735C-41A8-A9D3-5D81E5229D79}">
+  DTS:VersionBuild="207"
+  DTS:VersionGUID="{D7520A01-7FFB-429A-849F-697609741508}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -395,14 +395,14 @@
       <DTS:Variables />
       <DTS:PropertyExpression
         DTS:Name="SqlStatementSource">"BACKUP DATABASE [" + @[User::DataBaseName] + "] TO DISK = N'" +
-@[User::DatabaseBackupLocation] + 
+@[User::DatabaseBackupLocation]+@[User::DataBaseName]+"_AfterDataCleanUpBackup_"+
+(DT_STR,4,1252)DATEPART("yyyy", GETDATE())+ 
 RIGHT("0" + (DT_STR,2,1252)DATEPART("mm", GETDATE()),2) +
-RIGHT("0" + (DT_STR,2,1252)DATEPART("dd", GETDATE()),2) +
-(DT_STR,4,1252)DATEPART("yyyy", GETDATE()) + ".bak'"</DTS:PropertyExpression>
+RIGHT("0" + (DT_STR,2,1252)DATEPART("dd", GETDATE()),2) +".bak'"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{178F1BC6-7502-4A7A-B9EB-52CBF6CA0755}"
-          SQLTask:SqlStatementSource="BACKUP DATABASE [] TO DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\07252024.bak'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="BACKUP DATABASE [] TO DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\_AfterDataCleanUpBackup_20240726.bak'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -418,14 +418,14 @@ RIGHT("0" + (DT_STR,2,1252)DATEPART("dd", GETDATE()),2) +
       <DTS:Variables />
       <DTS:PropertyExpression
         DTS:Name="SqlStatementSource">"BACKUP DATABASE [" + @[User::DataBaseName] + "] TO DISK = N'" +
-@[User::DatabaseBackupLocation] + 
+@[User::DatabaseBackupLocation]+@[User::DataBaseName]+"_AfterDataExtractionBackup_"+
+(DT_STR,4,1252)DATEPART("yyyy", GETDATE())+ 
 RIGHT("0" + (DT_STR,2,1252)DATEPART("mm", GETDATE()),2) +
-RIGHT("0" + (DT_STR,2,1252)DATEPART("dd", GETDATE()),2) +
-(DT_STR,4,1252)DATEPART("yyyy", GETDATE()) + ".bak'"</DTS:PropertyExpression>
+RIGHT("0" + (DT_STR,2,1252)DATEPART("dd", GETDATE()),2) +".bak'"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{178F1BC6-7502-4A7A-B9EB-52CBF6CA0755}"
-          SQLTask:SqlStatementSource="BACKUP DATABASE [] TO DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\07252024.bak'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="BACKUP DATABASE [] TO DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\_AfterDataExtractionBackup_20240726.bak'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -441,14 +441,14 @@ RIGHT("0" + (DT_STR,2,1252)DATEPART("dd", GETDATE()),2) +
       <DTS:Variables />
       <DTS:PropertyExpression
         DTS:Name="SqlStatementSource">"BACKUP DATABASE [" + @[User::DataBaseName] + "] TO DISK = N'" +
-@[User::DatabaseBackupLocation] + 
+@[User::DatabaseBackupLocation]+@[User::DataBaseName]+"_PostCompletionBackup_"+
+(DT_STR,4,1252)DATEPART("yyyy", GETDATE())+ 
 RIGHT("0" + (DT_STR,2,1252)DATEPART("mm", GETDATE()),2) +
-RIGHT("0" + (DT_STR,2,1252)DATEPART("dd", GETDATE()),2) +
-(DT_STR,4,1252)DATEPART("yyyy", GETDATE()) + ".bak'"</DTS:PropertyExpression>
+RIGHT("0" + (DT_STR,2,1252)DATEPART("dd", GETDATE()),2) +".bak'"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{178F1BC6-7502-4A7A-B9EB-52CBF6CA0755}"
-          SQLTask:SqlStatementSource="BACKUP DATABASE [] TO DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\07252024.bak'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="BACKUP DATABASE [] TO DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\_PostCompletionBackup_20240726.bak'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -3630,14 +3630,14 @@ where [refTable].[UserID] = ?</property>
       <DTS:Variables />
       <DTS:PropertyExpression
         DTS:Name="SqlStatementSource">"BACKUP DATABASE [" + @[User::DataBaseName] + "] TO DISK = N'" +
-@[User::DatabaseBackupLocation] + 
+@[User::DatabaseBackupLocation]+@[User::DataBaseName]+"_InitialBackup_"+
+(DT_STR,4,1252)DATEPART("yyyy", GETDATE())+ 
 RIGHT("0" + (DT_STR,2,1252)DATEPART("mm", GETDATE()),2) +
-RIGHT("0" + (DT_STR,2,1252)DATEPART("dd", GETDATE()),2) +
-(DT_STR,4,1252)DATEPART("yyyy", GETDATE()) + ".bak'"</DTS:PropertyExpression>
+RIGHT("0" + (DT_STR,2,1252)DATEPART("dd", GETDATE()),2) +".bak'"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{178F1BC6-7502-4A7A-B9EB-52CBF6CA0755}"
-          SQLTask:SqlStatementSource="BACKUP DATABASE [] TO DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\07252024.bak'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="BACKUP DATABASE [] TO DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\_InitialBackup_20240726.bak'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -5522,9 +5522,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5546,9 +5544,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5582,9 +5578,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5654,9 +5648,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5726,9 +5718,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5750,58 +5740,56 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
           Text="Combine both the&#xA;column outputs from &#xA;data conversion to just get the &#xA;one with correct data types"
           ParentId="Package\Data Extraction and Transformation"
           FontInfo="{assembly:Null}"
-          Size="193.6,NaN"
+          Size="193.6,88"
           Id="5f7a6451-057f-407a-a768-2f476104ac73"
           TopLeft="32.803029814227,378.333329267123" />
         <AnnotationLayout
           Text="Fill in empty values for Total Price, because&#xA;that can be zero for people who have not&#xA;purchased anything yet. By doing this we don't&#xA;lose any data in the data conversion step."
           ParentId="Package\Data Extraction and Transformation"
           FontInfo="{assembly:Null}"
-          Size="276.8,NaN"
+          Size="276.8,88"
           Id="07669e5d-f561-4c6c-9500-e9fd6ce21a62"
           TopLeft="721.999992698431,131.999999354283" />
         <AnnotationLayout
           Text="Combine all the errors&#xA;to be outputted together."
           ParentId="Package\Data Extraction and Transformation"
           FontInfo="{assembly:Null}"
-          Size="164.8,NaN"
+          Size="164.8,56"
           Id="01862ea8-2c31-44fa-a91f-4ae6e69b886c"
           TopLeft="665.499993580083,625.166659874221" />
         <AnnotationLayout
           Text="Store the errors in a flat file for&#xA;review and correction."
           ParentId="Package\Data Extraction and Transformation"
           FontInfo="{assembly:Null}"
-          Size="191.2,NaN"
+          Size="191.2,56"
           Id="d0ff9f28-58f4-4081-9c98-a424264472f5"
           TopLeft="893.833323510985,384.999997193615" />
         <AnnotationLayout
           Text="Email Regex Script to check&#xA;for any email input errors and&#xA;if an error is present then the&#xA;script sets that cell's value to be null&#xA;which is handled later on in cleaning."
           ParentId="Package\Data Extraction and Transformation"
           FontInfo="{assembly:Null}"
-          Size="224,NaN"
+          Size="224,104"
           Id="2a9fde6c-fc7f-42cf-8f21-c0621705e867"
           TopLeft="33.333332836628,486.66666234533" />
         <AnnotationLayout
           Text="The input file in CSV Format for data."
           ParentId="Package\Data Extraction and Transformation"
           FontInfo="{assembly:Null}"
-          Size="182.4,NaN"
+          Size="182.4,56"
           Id="4323b811-43ec-4597-bdd2-7dee2bc9c2f8"
           TopLeft="246.666662991047,90.8333319798112" />
         <AnnotationLayout
           Text="Add data types"
           ParentId="Package\Data Extraction and Transformation"
           FontInfo="{assembly:Null}"
-          Size="108.8,NaN"
+          Size="108.8,40"
           Id="895ce4ee-7d08-4f84-b7f7-8f07f1ac084f"
           TopLeft="216.666663438082,269.499997851749" />
       </GraphLayout>

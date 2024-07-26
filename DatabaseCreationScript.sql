@@ -1,5 +1,5 @@
-IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = N'KoreAssignment_{bhavya_jain}')
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = N'YourDatabaseName')
 BEGIN
-CREATE DATABASE [KoreAssignment_{bhavya_jain}];
+CREATE DATABASE [YourDatabaseName];
 END
 GO
