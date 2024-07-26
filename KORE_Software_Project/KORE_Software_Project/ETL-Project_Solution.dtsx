@@ -11,21 +11,25 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="167"
-  DTS:VersionGUID="{FA973544-EBD7-4174-94B2-D235C711003B}">
+  DTS:VersionBuild="203"
+  DTS:VersionGUID="{5D9F4469-001F-417F-8904-8A3F9388362F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Bhavi.KoreAssignment_{bhavya_jain\}]"
+      DTS:refId="Package.ConnectionManagers[Bhavi.KoreAssignment_bhavya_jain]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{178F1BC6-7502-4A7A-B9EB-52CBF6CA0755}"
-      DTS:ObjectName="Bhavi.KoreAssignment_{bhavya_jain}">
+      DTS:ObjectName="Bhavi.KoreAssignment_bhavya_jain">
+      <DTS:PropertyExpression
+        DTS:Name="InitialCatalog">@[User::DataBaseName]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[User::ServerName]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=Bhavi;Initial Catalog=KoreAssignment_{bhavya_jain};Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=;Initial Catalog=;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{178F1BC6-7502-4A7A-B9EB-52CBF6CA0755}Bhavi.KoreAssignment_{bhavya_jain};" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -33,6 +37,8 @@
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{14AA4183-1C1D-4D03-890E-4171BFF00245}"
       DTS:ObjectName="Flat File Connection Manager - GeneralErrors">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::ErrorFolderAddress] + "\\errorLog_GeneralErrors.csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -42,7 +48,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\jain_\Documents\Git\SSIS_Project\ErrorLogs\errorLog_GeneralErrors.csv">
+          DTS:ConnectionString="\errorLog_GeneralErrors.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -132,6 +138,8 @@
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{905748B9-5A28-4DD3-916B-D6CD3DD4C0DD}"
       DTS:ObjectName="Flat File Data Cleaning Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::ErrorFolderAddress] + "\\errorLog_DataCleaning.csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -141,7 +149,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\jain_\Documents\Git\SSIS_Project\ErrorLogs\errorLog_DataCleaning.csv">
+          DTS:ConnectionString="\errorLog_DataCleaning.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -230,6 +238,8 @@
       DTS:Description="Input Data String"
       DTS:DTSID="{CDC658B5-8FAF-4EF2-9BBB-4B0AAAF2D586}"
       DTS:ObjectName="Flat File Input Data Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::InputCSVFileAddress]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -238,8 +248,7 @@
           DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\jain_\Documents\Git\SSIS_Project\KORE_Software_Project\InputData.csv">
+          DTS:CodePage="1252">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -248,7 +257,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="UserID"
-              DTS:DTSID="{6C6E5C61-2BF3-4944-A885-5A16DC60DC3D}"
+              DTS:DTSID="{AA7071E3-32CB-443A-AAED-45AAF3660638}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -257,7 +266,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="FullName"
-              DTS:DTSID="{C46608CA-1114-487A-996D-0E026E7186F2}"
+              DTS:DTSID="{1FE04275-A9C1-4F85-9842-746E43A9AFB0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -266,7 +275,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Age"
-              DTS:DTSID="{2B548555-8A33-4CA8-AB5D-3A428D902701}"
+              DTS:DTSID="{6D8FFA21-2F6E-4AEE-B0D6-55179F3C2D87}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -275,7 +284,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Email"
-              DTS:DTSID="{2BBE0558-C8FE-402A-BCE1-4A38CFB06EC9}"
+              DTS:DTSID="{19845568-976F-41C1-9277-4E9C6C18FD1E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -284,7 +293,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="RegistrationDate"
-              DTS:DTSID="{43A40B88-97B8-4651-8896-B1B81096C69A}"
+              DTS:DTSID="{69DD2050-2561-41BC-ABD4-B0BF30DC512E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -293,16 +302,16 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="LastLoginDate"
-              DTS:DTSID="{5B654D03-4C28-4869-8418-B78773802B5B}"
+              DTS:DTSID="{5E1C19A5-BC1E-4A91-AA68-43CCF2473541}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:ColumnDelimiter="_x000A_"
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PurchaseTotal"
-              DTS:DTSID="{1112A0BB-E5A3-4512-B7A4-DFB218250F8B}"
+              DTS:DTSID="{FC497AB7-197F-42BF-8FC3-6C1328681603}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -313,120 +322,133 @@
       DTS:CreationName="ADO.NET:SQL"
       DTS:DTSID="{3D23F9A4-B2FB-4F35-9357-ED00F1FF3188}"
       DTS:ObjectName="KoreSoftwareDatabaseConnection">
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[User::ServerName]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=Bhavi;Integrated Security=SSPI;Connect Timeout=30;" />
+          DTS:ConnectionString="Data Source=;Integrated Security=SSPI;Connect Timeout=30;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:Variables />
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A391817C-08E0-4AE1-99ED-A8AEE99EE4DD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DatabaseBackupLocation">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1A243803-F156-4DE1-92FA-2C255ED6302C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DataBaseName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{97D3E683-52C4-48D7-A9EB-E3B89F93CD9C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ErrorFolderAddress">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0A38C87F-2B19-4068-8B27-97451CC59264}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="InputCSVFileAddress">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{361E77D9-1986-4C4D-9F26-9F248D81E85C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ServerName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Backup after data extraction"
-      DTS:CreationName="Microsoft.DbMaintenanceBackupTask"
-      DTS:Description="Back Up Database Task"
-      DTS:DTSID="{f93308f8-5969-487e-a9aa-cb27e462db4e}"
-      DTS:ExecutableType="Microsoft.DbMaintenanceBackupTask"
+      DTS:refId="Package\Backup after data cleaning"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{faa9feae-c6ed-453e-9b7c-54b5dd9a8358}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Backup after data extraction"
-      DTS:TaskContact="Back Up Database Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ObjectName="Backup after data cleaning"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"BACKUP DATABASE [" + @[User::DataBaseName] + "] TO DISK = N'" +
+@[User::DatabaseBackupLocation] + 
+RIGHT("0" + (DT_STR,2,1252)DATEPART("mm", GETDATE()),2) +
+RIGHT("0" + (DT_STR,2,1252)DATEPART("dd", GETDATE()),2) +
+(DT_STR,4,1252)DATEPART("yyyy", GETDATE()) + ".bak'"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{3D23F9A4-B2FB-4F35-9357-ED00F1FF3188}"
-          SQLTask:DatabaseSelectionType="4"
-          SQLTask:ServerVersion="16"
-          SQLTask:ExtendedLogging="True"
-          SQLTask:LocalConnectionForLogging=""
-          SQLTask:TaskName=""
-          SQLTask:IgnoreDatabasesInNotOnlineState="False"
-          SQLTask:BackupAction="0"
-          SQLTask:BackupIsIncremental="False"
-          SQLTask:BackupFileGroupsFiles=""
-          SQLTask:BackupDeviceType="2"
-          SQLTask:BackupPhysicalDestinationType="2"
-          SQLTask:BackupDestinationType="0"
-          SQLTask:BackupDestinationAutoFolderPath="C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup"
-          SQLTask:BackupActionForExistingBackups="0"
-          SQLTask:BackupCreateSubFolder="False"
-          SQLTask:BackupFileExtension=""
-          SQLTask:BackupVerifyIntegrity="False"
-          SQLTask:ExpireDate="2024-08-08T00:00:00"
-          SQLTask:RetainDays="14"
-          SQLTask:InDays="True"
-          SQLTask:UseExpiration="False"
-          SQLTask:BackupCompressionAction="0"
-          SQLTask:CopyOnlyBackup="False"
-          SQLTask:IgnoreReplicaType="False"
-          SQLTask:CredentialName=""
-          SQLTask:ContainerName=""
-          SQLTask:UrlPrefix=""
-          SQLTask:IsBackupEncrypted="False"
-          SQLTask:BackupEncryptionAlgorithm="0"
-          SQLTask:BackupEncryptorType="0"
-          SQLTask:BackupEncryptorName=""
-          SQLTask:Checksum="False"
-          SQLTask:ContinueOnError="False"
-          SQLTask:IsBlockSizeUsed="False"
-          SQLTask:IsMaxTransferSizeUsed="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-          <SQLTask:SelectedDatabases
-            SQLTask:DatabaseName="KoreAssignment_{bhavya_jain}" />
-        </SQLTask:SqlTaskData>
+          SQLTask:Connection="{178F1BC6-7502-4A7A-B9EB-52CBF6CA0755}"
+          SQLTask:SqlStatementSource="BACKUP DATABASE [] TO DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\07252024.bak'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Backup Initial State of Database"
-      DTS:CreationName="Microsoft.DbMaintenanceBackupTask"
-      DTS:Description="Back Up Database Task"
-      DTS:DTSID="{0a5dc825-8bc0-4a34-9d1c-07e711c89a22}"
-      DTS:ExecutableType="Microsoft.DbMaintenanceBackupTask"
+      DTS:refId="Package\Backup after data extraction"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{13ce1473-2793-43ed-ba3a-5e539270e546}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Backup Initial State of Database"
-      DTS:TaskContact="Back Up Database Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ObjectName="Backup after data extraction"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
       <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"BACKUP DATABASE [" + @[User::DataBaseName] + "] TO DISK = N'" +
+@[User::DatabaseBackupLocation] + 
+RIGHT("0" + (DT_STR,2,1252)DATEPART("mm", GETDATE()),2) +
+RIGHT("0" + (DT_STR,2,1252)DATEPART("dd", GETDATE()),2) +
+(DT_STR,4,1252)DATEPART("yyyy", GETDATE()) + ".bak'"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{3D23F9A4-B2FB-4F35-9357-ED00F1FF3188}"
-          SQLTask:DatabaseSelectionType="4"
-          SQLTask:ServerVersion="16"
-          SQLTask:ExtendedLogging="True"
-          SQLTask:LocalConnectionForLogging=""
-          SQLTask:TaskName=""
-          SQLTask:IgnoreDatabasesInNotOnlineState="False"
-          SQLTask:BackupAction="0"
-          SQLTask:BackupIsIncremental="False"
-          SQLTask:BackupFileGroupsFiles=""
-          SQLTask:BackupDeviceType="2"
-          SQLTask:BackupPhysicalDestinationType="2"
-          SQLTask:BackupDestinationType="0"
-          SQLTask:BackupDestinationAutoFolderPath="C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup"
-          SQLTask:BackupActionForExistingBackups="0"
-          SQLTask:BackupCreateSubFolder="False"
-          SQLTask:BackupFileExtension=""
-          SQLTask:BackupVerifyIntegrity="False"
-          SQLTask:ExpireDate="2024-08-08T00:00:00"
-          SQLTask:RetainDays="14"
-          SQLTask:InDays="True"
-          SQLTask:UseExpiration="False"
-          SQLTask:BackupCompressionAction="0"
-          SQLTask:CopyOnlyBackup="False"
-          SQLTask:IgnoreReplicaType="False"
-          SQLTask:CredentialName=""
-          SQLTask:ContainerName=""
-          SQLTask:UrlPrefix=""
-          SQLTask:IsBackupEncrypted="False"
-          SQLTask:BackupEncryptionAlgorithm="0"
-          SQLTask:BackupEncryptorType="0"
-          SQLTask:BackupEncryptorName=""
-          SQLTask:Checksum="False"
-          SQLTask:ContinueOnError="False"
-          SQLTask:IsBlockSizeUsed="False"
-          SQLTask:IsMaxTransferSizeUsed="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-          <SQLTask:SelectedDatabases
-            SQLTask:DatabaseName="KoreAssignment_{bhavya_jain}" />
-        </SQLTask:SqlTaskData>
+          SQLTask:Connection="{178F1BC6-7502-4A7A-B9EB-52CBF6CA0755}"
+          SQLTask:SqlStatementSource="BACKUP DATABASE [] TO DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\07252024.bak'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Backup after pushing to production"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{f51690cb-aece-4e8e-bd08-705717cd9c01}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Backup after pushing to production"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"BACKUP DATABASE [" + @[User::DataBaseName] + "] TO DISK = N'" +
+@[User::DatabaseBackupLocation] + 
+RIGHT("0" + (DT_STR,2,1252)DATEPART("mm", GETDATE()),2) +
+RIGHT("0" + (DT_STR,2,1252)DATEPART("dd", GETDATE()),2) +
+(DT_STR,4,1252)DATEPART("yyyy", GETDATE()) + ".bak'"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{178F1BC6-7502-4A7A-B9EB-52CBF6CA0755}"
+          SQLTask:SqlStatementSource="BACKUP DATABASE [] TO DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\07252024.bak'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -449,7 +471,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Date Check"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -466,7 +488,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Email Check"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -483,7 +505,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Purchase Total Check"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -500,7 +522,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Remove Duplicates"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -517,7 +539,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Validate Date"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2666,8 +2688,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               <connections>
                 <connection
                   refId="Package\Data Extraction and Transformation\Staging Table.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Bhavi.KoreAssignment_{bhavya_jain\}]"
-                  connectionManagerRefId="Package.ConnectionManagers[Bhavi.KoreAssignment_{bhavya_jain\}]"
+                  connectionManagerID="Package.ConnectionManagers[Bhavi.KoreAssignment_bhavya_jain]"
+                  connectionManagerRefId="Package.ConnectionManagers[Bhavi.KoreAssignment_bhavya_jain]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3070,8 +3092,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               <connections>
                 <connection
                   refId="Package\Incremental Load\Grabbing Data from Staging Table.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Bhavi.KoreAssignment_{bhavya_jain\}]"
-                  connectionManagerRefId="Package.ConnectionManagers[Bhavi.KoreAssignment_{bhavya_jain\}]"
+                  connectionManagerID="Package.ConnectionManagers[Bhavi.KoreAssignment_bhavya_jain]"
+                  connectionManagerRefId="Package.ConnectionManagers[Bhavi.KoreAssignment_bhavya_jain]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3319,8 +3341,8 @@ where [refTable].[UserID] = ?</property>
               <connections>
                 <connection
                   refId="Package\Incremental Load\Lookup Not Present Data in Production.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Bhavi.KoreAssignment_{bhavya_jain\}]"
-                  connectionManagerRefId="Package.ConnectionManagers[Bhavi.KoreAssignment_{bhavya_jain\}]"
+                  connectionManagerID="Package.ConnectionManagers[Bhavi.KoreAssignment_bhavya_jain]"
+                  connectionManagerRefId="Package.ConnectionManagers[Bhavi.KoreAssignment_bhavya_jain]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -3449,8 +3471,8 @@ where [refTable].[UserID] = ?</property>
               <connections>
                 <connection
                   refId="Package\Incremental Load\Putting data in Production Table.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Bhavi.KoreAssignment_{bhavya_jain\}]"
-                  connectionManagerRefId="Package.ConnectionManagers[Bhavi.KoreAssignment_{bhavya_jain\}]"
+                  connectionManagerID="Package.ConnectionManagers[Bhavi.KoreAssignment_bhavya_jain]"
+                  connectionManagerRefId="Package.ConnectionManagers[Bhavi.KoreAssignment_bhavya_jain]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3596,6 +3618,29 @@ where [refTable].[UserID] = ?</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Initial Backup"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DB467423-886B-478A-A156-D33FD0636810}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Initial Backup"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"BACKUP DATABASE [" + @[User::DataBaseName] + "] TO DISK = N'" +
+@[User::DatabaseBackupLocation] + 
+RIGHT("0" + (DT_STR,2,1252)DATEPART("mm", GETDATE()),2) +
+RIGHT("0" + (DT_STR,2,1252)DATEPART("dd", GETDATE()),2) +
+(DT_STR,4,1252)DATEPART("yyyy", GETDATE()) + ".bak'"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{178F1BC6-7502-4A7A-B9EB-52CBF6CA0755}"
+          SQLTask:SqlStatementSource="BACKUP DATABASE [] TO DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\07252024.bak'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Initial Setup of DB Tables"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -3609,7 +3654,7 @@ where [refTable].[UserID] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{178F1BC6-7502-4A7A-B9EB-52CBF6CA0755}"
-          SQLTask:SqlStatementSource="USE [KoreAssignment_{bhavya_jain}]&#xA;GO&#xA;&#xA;BEGIN TRY&#xA;    BEGIN TRANSACTION;&#xA;&#xA;    -- Check and create stg schema if it does not exist&#xA;    IF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = N'stg')&#xA;    BEGIN&#xA;        EXEC('CREATE SCHEMA stg');&#xA;    END&#xA;&#xA;    -- Check and create prod schema if it does not exist&#xA;    IF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = N'prod')&#xA;    BEGIN&#xA;        EXEC('CREATE SCHEMA prod');&#xA;    END&#xA;&#xA;    -- Check and create errorLog schema if it does not exist&#xA;    IF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = N'errorLog')&#xA;    BEGIN&#xA;        EXEC('CREATE SCHEMA errorLog');&#xA;    END&#xA;&#xA;    -- Check and create stg.Users table if it does not exist&#xA;    IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'stg.Users') AND type in (N'U'))&#xA;    BEGIN&#xA;        CREATE TABLE stg.Users (&#xA;            StgID INT IDENTITY(1,1) PRIMARY KEY,&#xA;            UserID INT,&#xA;            FullName NVARCHAR(255),&#xA;            Age INT,&#xA;            Email NVARCHAR(255),&#xA;            RegistrationDate DATE,&#xA;            LastLoginDate DATE,&#xA;            PurchaseTotal FLOAT&#xA;        );&#xA;    END&#xA;&#xA;    -- Check and create prod.Users table if it does not exist&#xA;    IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'prod.Users') AND type in (N'U'))&#xA;    BEGIN&#xA;        CREATE TABLE prod.Users (&#xA;            ID INT IDENTITY(1,1) PRIMARY KEY,&#xA;            UserID INT,&#xA;            FullName NVARCHAR(255),&#xA;            Age INT,&#xA;            Email NVARCHAR(255),&#xA;            RegistrationDate DATE,&#xA;            LastLoginDate DATE,&#xA;            PurchaseTotal FLOAT,&#xA;            RecordLastUpdated DATETIME DEFAULT GETDATE()&#xA;        );&#xA;    END&#xA;&#xA;-- Check and create errorLog.Users table if it does not exist&#xA;    IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'errorLog.Users') AND type in (N'U'))&#xA;    BEGIN&#xA;        CREATE TABLE errorLog.Users (&#xA;            errorID INT IDENTITY(1,1) PRIMARY KEY,&#xA;            UserID INT,&#xA;            FullName NVARCHAR(255),&#xA;            Age INT,&#xA;            Email NVARCHAR(255),&#xA;            RegistrationDate DATE,&#xA;            LastLoginDate DATE,&#xA;            PurchaseTotal FLOAT,&#xA;ErrorMessage NVARCHAR(255)&#xA;        );&#xA;    END&#xA;&#xA;    -- Insert initial data into prod.Users if table is empty&#xA;    IF (SELECT COUNT(*) FROM prod.Users) = 0&#xA;    BEGIN&#xA;        INSERT INTO prod.Users (UserID, FullName, Age, Email, RegistrationDate, LastLoginDate, PurchaseTotal)&#xA;        VALUES&#xA;            (101, 'John Doe', 30, 'johndoe@example.com', '2021-01-10', '2023-03-01', 150.00),&#xA;            (102, 'Jane Smith', 25, 'janesmith@example.com', '2020-05-15', '2023-02-25', 200.00),&#xA;            (103, 'Emily Johnson', 22, 'emilyjohnson@example.com', '2019-03-23', '2023-01-30', 120.50),&#xA;            (104, 'Michael Brown', 35, 'michaelbrown@example.com', '2018-07-18', '2023-02-20', 300.75),&#xA;            (105, 'Jessica Garcia', 28, 'jessicagarcia@example.com', '2022-08-05', '2023-02-18', 180.25),&#xA;            (106, 'David Miller', 40, 'davidmiller@example.com', '2017-12-12', '2023-02-15', 220.40),&#xA;            (107, 'Sarah Martinez', 33, 'sarahmartinez@example.com', '2018-11-30', '2023-02-10', 140.60),&#xA;            (108, 'James Taylor', 29, 'jamestaylor@example.com', '2019-06-22', '2023-02-05', 210.00),&#xA;            (109, 'Linda Anderson', 27, 'lindaanderson@example.com', '2021-04-16', '2023-01-25', 165.95),&#xA;            (110, 'Robert Wilson', 31, 'robertwilson@example.com', '2020-02-20', '2023-01-20', 175.00);&#xA;    END&#xA;&#xA;    COMMIT TRANSACTION;&#xA;END TRY&#xA;BEGIN CATCH&#xA;    ROLLBACK TRANSACTION;&#xA;    THROW;&#xA;END CATCH&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="BEGIN TRY&#xA;    BEGIN TRANSACTION;&#xA;&#xA;    -- Check and create stg schema if it does not exist&#xA;    IF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = N'stg')&#xA;    BEGIN&#xA;        EXEC('CREATE SCHEMA stg');&#xA;    END&#xA;&#xA;    -- Check and create prod schema if it does not exist&#xA;    IF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = N'prod')&#xA;    BEGIN&#xA;        EXEC('CREATE SCHEMA prod');&#xA;    END&#xA;&#xA;    -- Check and create errorLog schema if it does not exist&#xA;    IF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = N'errorLog')&#xA;    BEGIN&#xA;        EXEC('CREATE SCHEMA errorLog');&#xA;    END&#xA;&#xA;    -- Check and create stg.Users table if it does not exist&#xA;    IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'stg.Users') AND type in (N'U'))&#xA;    BEGIN&#xA;        CREATE TABLE stg.Users (&#xA;            StgID INT IDENTITY(1,1) PRIMARY KEY,&#xA;            UserID INT,&#xA;            FullName NVARCHAR(255),&#xA;            Age INT,&#xA;            Email NVARCHAR(255),&#xA;            RegistrationDate DATE,&#xA;            LastLoginDate DATE,&#xA;            PurchaseTotal FLOAT&#xA;        );&#xA;    END&#xA;&#xA;    -- Check and create prod.Users table if it does not exist&#xA;    IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'prod.Users') AND type in (N'U'))&#xA;    BEGIN&#xA;        CREATE TABLE prod.Users (&#xA;            ID INT IDENTITY(1,1) PRIMARY KEY,&#xA;            UserID INT,&#xA;            FullName NVARCHAR(255),&#xA;            Age INT,&#xA;            Email NVARCHAR(255),&#xA;            RegistrationDate DATE,&#xA;            LastLoginDate DATE,&#xA;            PurchaseTotal FLOAT,&#xA;            RecordLastUpdated DATETIME DEFAULT GETDATE()&#xA;        );&#xA;    END&#xA;&#xA;-- Check and create errorLog.Users table if it does not exist&#xA;    IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'errorLog.Users') AND type in (N'U'))&#xA;    BEGIN&#xA;        CREATE TABLE errorLog.Users (&#xA;            errorID INT IDENTITY(1,1) PRIMARY KEY,&#xA;            UserID INT,&#xA;            FullName NVARCHAR(255),&#xA;            Age INT,&#xA;            Email NVARCHAR(255),&#xA;            RegistrationDate DATE,&#xA;            LastLoginDate DATE,&#xA;            PurchaseTotal FLOAT,&#xA;ErrorMessage NVARCHAR(255)&#xA;        );&#xA;    END&#xA;&#xA;    -- Insert initial data into prod.Users if table is empty&#xA;    IF (SELECT COUNT(*) FROM prod.Users) = 0&#xA;    BEGIN&#xA;        INSERT INTO prod.Users (UserID, FullName, Age, Email, RegistrationDate, LastLoginDate, PurchaseTotal)&#xA;        VALUES&#xA;            (101, 'John Doe', 30, 'johndoe@example.com', '2021-01-10', '2023-03-01', 150.00),&#xA;            (102, 'Jane Smith', 25, 'janesmith@example.com', '2020-05-15', '2023-02-25', 200.00),&#xA;            (103, 'Emily Johnson', 22, 'emilyjohnson@example.com', '2019-03-23', '2023-01-30', 120.50),&#xA;            (104, 'Michael Brown', 35, 'michaelbrown@example.com', '2018-07-18', '2023-02-20', 300.75),&#xA;            (105, 'Jessica Garcia', 28, 'jessicagarcia@example.com', '2022-08-05', '2023-02-18', 180.25),&#xA;            (106, 'David Miller', 40, 'davidmiller@example.com', '2017-12-12', '2023-02-15', 220.40),&#xA;            (107, 'Sarah Martinez', 33, 'sarahmartinez@example.com', '2018-11-30', '2023-02-10', 140.60),&#xA;            (108, 'James Taylor', 29, 'jamestaylor@example.com', '2019-06-22', '2023-02-05', 210.00),&#xA;            (109, 'Linda Anderson', 27, 'lindaanderson@example.com', '2021-04-16', '2023-01-25', 165.95),&#xA;            (110, 'Robert Wilson', 31, 'robertwilson@example.com', '2020-02-20', '2023-01-20', 175.00);&#xA;    END&#xA;&#xA;    COMMIT TRANSACTION;&#xA;END TRY&#xA;BEGIN CATCH&#xA;    ROLLBACK TRANSACTION;&#xA;    THROW;&#xA;END CATCH&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -3821,8 +3866,8 @@ where [refTable].[UserID] = ?</property>
               <connections>
                 <connection
                   refId="Package\Output Errors From Data Cleaning\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Bhavi.KoreAssignment_{bhavya_jain\}]"
-                  connectionManagerRefId="Package.ConnectionManagers[Bhavi.KoreAssignment_{bhavya_jain\}]"
+                  connectionManagerID="Package.ConnectionManagers[Bhavi.KoreAssignment_bhavya_jain]"
+                  connectionManagerRefId="Package.ConnectionManagers[Bhavi.KoreAssignment_bhavya_jain]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4047,114 +4092,6 @@ where [refTable].[UserID] = ?</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Production Database Backup"
-      DTS:CreationName="Microsoft.DbMaintenanceBackupTask"
-      DTS:Description="Back Up Database Task"
-      DTS:DTSID="{3EF360E7-8C21-42F5-A8ED-34728FCCE480}"
-      DTS:ExecutableType="Microsoft.DbMaintenanceBackupTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Production Database Backup"
-      DTS:TaskContact="Back Up Database Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{3D23F9A4-B2FB-4F35-9357-ED00F1FF3188}"
-          SQLTask:DatabaseSelectionType="4"
-          SQLTask:ServerVersion="16"
-          SQLTask:ExtendedLogging="True"
-          SQLTask:LocalConnectionForLogging=""
-          SQLTask:TaskName=""
-          SQLTask:IgnoreDatabasesInNotOnlineState="False"
-          SQLTask:BackupAction="0"
-          SQLTask:BackupIsIncremental="False"
-          SQLTask:BackupFileGroupsFiles=""
-          SQLTask:BackupDeviceType="2"
-          SQLTask:BackupPhysicalDestinationType="2"
-          SQLTask:BackupDestinationType="0"
-          SQLTask:BackupDestinationAutoFolderPath="C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup"
-          SQLTask:BackupActionForExistingBackups="0"
-          SQLTask:BackupCreateSubFolder="False"
-          SQLTask:BackupFileExtension=""
-          SQLTask:BackupVerifyIntegrity="False"
-          SQLTask:ExpireDate="2024-08-08T00:00:00"
-          SQLTask:RetainDays="14"
-          SQLTask:InDays="True"
-          SQLTask:UseExpiration="False"
-          SQLTask:BackupCompressionAction="0"
-          SQLTask:CopyOnlyBackup="False"
-          SQLTask:IgnoreReplicaType="False"
-          SQLTask:CredentialName=""
-          SQLTask:ContainerName=""
-          SQLTask:UrlPrefix=""
-          SQLTask:IsBackupEncrypted="False"
-          SQLTask:BackupEncryptionAlgorithm="0"
-          SQLTask:BackupEncryptorType="0"
-          SQLTask:BackupEncryptorName=""
-          SQLTask:Checksum="False"
-          SQLTask:ContinueOnError="False"
-          SQLTask:IsBlockSizeUsed="False"
-          SQLTask:IsMaxTransferSizeUsed="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-          <SQLTask:SelectedDatabases
-            SQLTask:DatabaseName="KoreAssignment_{bhavya_jain}" />
-        </SQLTask:SqlTaskData>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Staging Database Backup After Cleanup"
-      DTS:CreationName="Microsoft.DbMaintenanceBackupTask"
-      DTS:Description="Back Up Database Task"
-      DTS:DTSID="{83e70398-3347-48e7-b099-923470b86017}"
-      DTS:ExecutableType="Microsoft.DbMaintenanceBackupTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Staging Database Backup After Cleanup"
-      DTS:TaskContact="Back Up Database Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{3D23F9A4-B2FB-4F35-9357-ED00F1FF3188}"
-          SQLTask:DatabaseSelectionType="4"
-          SQLTask:ServerVersion="16"
-          SQLTask:ExtendedLogging="True"
-          SQLTask:LocalConnectionForLogging=""
-          SQLTask:TaskName=""
-          SQLTask:IgnoreDatabasesInNotOnlineState="False"
-          SQLTask:BackupAction="0"
-          SQLTask:BackupIsIncremental="False"
-          SQLTask:BackupFileGroupsFiles=""
-          SQLTask:BackupDeviceType="2"
-          SQLTask:BackupPhysicalDestinationType="2"
-          SQLTask:BackupDestinationType="0"
-          SQLTask:BackupDestinationAutoFolderPath="C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup"
-          SQLTask:BackupActionForExistingBackups="0"
-          SQLTask:BackupCreateSubFolder="False"
-          SQLTask:BackupFileExtension=""
-          SQLTask:BackupVerifyIntegrity="False"
-          SQLTask:ExpireDate="2024-08-08T00:00:00"
-          SQLTask:RetainDays="14"
-          SQLTask:InDays="True"
-          SQLTask:UseExpiration="False"
-          SQLTask:BackupCompressionAction="0"
-          SQLTask:CopyOnlyBackup="False"
-          SQLTask:IgnoreReplicaType="False"
-          SQLTask:CredentialName=""
-          SQLTask:ContainerName=""
-          SQLTask:UrlPrefix=""
-          SQLTask:IsBackupEncrypted="False"
-          SQLTask:BackupEncryptionAlgorithm="0"
-          SQLTask:BackupEncryptorType="0"
-          SQLTask:BackupEncryptorName=""
-          SQLTask:Checksum="False"
-          SQLTask:ContinueOnError="False"
-          SQLTask:IsBlockSizeUsed="False"
-          SQLTask:IsMaxTransferSizeUsed="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-          <SQLTask:SelectedDatabases
-            SQLTask:DatabaseName="KoreAssignment_{bhavya_jain}" />
-        </SQLTask:SqlTaskData>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\Truncate Error Table"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -4163,7 +4100,7 @@ where [refTable].[UserID] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate Error Table"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -4180,12 +4117,702 @@ where [refTable].[UserID] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate Stg Table"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{178F1BC6-7502-4A7A-B9EB-52CBF6CA0755}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE stg.Users;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\User Input"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="Script Task"
+      DTS:DTSID="{F22A1106-C27F-4B19-9DA3-E642161600E8}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="User Input"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_e96914c8c1744b4d85fba9a9bff39c42"
+          VSTAMajorVersion="16"
+          VSTAMinorVersion="0"
+          Language="CSharp"
+          ReadWriteVariables="User::DataBaseName,User::ErrorFolderAddress,User::InputCSVFileAddress,User::ServerName">
+          <ProjectItem
+            Name="Properties\Resources.resx"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+          <ProjectItem
+            Name="ST_e96914c8c1744b4d85fba9a9bff39c42.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{15BF9C11-664C-4F81-AE36-0FABFBF2F40C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_e96914c8c1744b4d85fba9a9bff39c42</RootNamespace>
+    <AssemblyName>ST_e96914c8c1744b4d85fba9a9bff39c42</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
+        <Host Name="ScriptTask" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST160</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_e96914c8c1744b4d85fba9a9bff39c42.Properties.Settings.get_Default():ST_e96914c8c1744b4d85fba9a9bff39c42.Properties.Sett" +
+    "ings")]
+
+namespace ST_e96914c8c1744b4d85fba9a9bff39c42.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="ScriptMain.cs"
+            Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+#endregion
+
+namespace ST_e96914c8c1744b4d85fba9a9bff39c42
+{
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+	public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+	{
+        #region Help:  Using Integration Services variables and parameters in a script
+        /* To use a variable in this script, first ensure that the variable has been added to 
+         * either the list contained in the ReadOnlyVariables property or the list contained in 
+         * the ReadWriteVariables property of this script task, according to whether or not your
+         * code needs to write to the variable.  To add the variable, save this script, close this instance of
+         * Visual Studio, and update the ReadOnlyVariables and 
+         * ReadWriteVariables properties in the Script Transformation Editor window.
+         * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+         * 
+         * Example of reading from a variable:
+         *  DateTime startTime = (DateTime) Dts.Variables["System::StartTime"].Value;
+         * 
+         * Example of writing to a variable:
+         *  Dts.Variables["User::myStringVariable"].Value = "new value";
+         * 
+         * Example of reading from a package parameter:
+         *  int batchId = (int) Dts.Variables["$Package::batchId"].Value;
+         *  
+         * Example of reading from a project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].Value;
+         * 
+         * Example of reading from a sensitive project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].GetSensitiveValue();
+         * */
+
+        #endregion
+
+        #region Help:  Firing Integration Services events from a script
+        /* This script task can fire events for logging purposes.
+         * 
+         * Example of firing an error event:
+         *  Dts.Events.FireError(18, "Process Values", "Bad value", "", 0);
+         * 
+         * Example of firing an information event:
+         *  Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, ref fireAgain)
+         * 
+         * Example of firing a warning event:
+         *  Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0);
+         * */
+        #endregion
+
+        #region Help:  Using Integration Services connection managers in a script
+        /* Some types of connection managers can be used in this script task.  See the topic 
+         * "Working with Connection Managers Programatically" for details.
+         * 
+         * Example of using an ADO.Net connection manager:
+         *  object rawConnection = Dts.Connections["Sales DB"].AcquireConnection(Dts.Transaction);
+         *  SqlConnection myADONETConnection = (SqlConnection)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Sales DB"].ReleaseConnection(rawConnection);
+         *
+         * Example of using a File connection manager
+         *  object rawConnection = Dts.Connections["Prices.zip"].AcquireConnection(Dts.Transaction);
+         *  string filePath = (string)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Prices.zip"].ReleaseConnection(rawConnection);
+         * */
+        #endregion
+
+
+		/// <summary>
+        /// This method is called when this script task executes in the control flow.
+        /// Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+        /// To open Help, press F1.
+        /// </summary>
+		public void Main()
+		{
+            /* Learnt this code from: https://stackoverflow.com/questions/29416083/problems-prompting-for-input-from-an-ssis-package
+               Also learnt using ChatGPT for how to adjust the size of text box and how to handle the submit event.            
+             */
+            
+            // Create a new form for user input
+            Form inputForm = new Form();
+            inputForm.Text = "Please fill in the following information";
+
+            // Create a label
+            Label l_severName = new Label() { Text = "Sever Name:- ", AutoSize = true, Left = 50, Top = 20 };
+            Label l_DataBaseName = new Label() { Text = "Database Name:- " , AutoSize = true, Left = 50, Top = 50 };
+            Label l_ErrorOutputFolderAddress = new Label() { Text = "Error Output Folder:- ", AutoSize = true, Left = 50, Top = 80 };
+            Label l_InputCSVFileLocation = new Label() { Text = "Input CSV File Location:- ", AutoSize = true, Left = 50, Top = 110 };
+
+            // Create text boxes for user input
+            TextBox ServerName = new TextBox() { Left = 250, Top = 20, Width = 500, Text = "Please enter the server name you want to work on." };
+            TextBox DataBaseName = new TextBox() { Left = 250, Top = 50, Width = 500, Text = "Please enter the database name that you want to work on" };
+            TextBox ErrorOutputFolderAddress = new TextBox() { Left = 250, Top = 80, Width = 500 , Text = "For example: C:\\Users\\SSIS_Project\\ErrorLogs" };
+            TextBox InputCSVFileLocation = new TextBox() { Left = 250, Top = 110, Width = 500 , Text= "For example: C:\\Users\\SSIS_Project\\InputData.csv" };
+            
+            // Create a button to submit the input
+            Button submitButton = new Button() { Text = "Submit", Left = 100, Top = 190, Width = 100 };
+            submitButton.Click += (sender, e) => { inputForm.DialogResult = DialogResult.OK; };
+
+            // Add controls to the form
+            inputForm.Controls.Add(l_severName);
+            inputForm.Controls.Add(l_DataBaseName);
+            inputForm.Controls.Add(l_ErrorOutputFolderAddress);
+            inputForm.Controls.Add(l_InputCSVFileLocation);
+            inputForm.Controls.Add(ServerName);
+            inputForm.Controls.Add(DataBaseName);
+            inputForm.Controls.Add(ErrorOutputFolderAddress);
+            inputForm.Controls.Add(InputCSVFileLocation);
+            inputForm.Controls.Add(submitButton);
+
+            // Show the form and get user input
+            if (inputForm.ShowDialog() == DialogResult.OK)
+            {
+                // Retrieve input values
+                string input1 = ServerName.Text;
+                string input2 = DataBaseName.Text;
+                string input3 = ErrorOutputFolderAddress.Text;
+                string input4 = InputCSVFileLocation.Text;
+
+                // Set SSIS variables
+                Dts.Variables["User::ServerName"].Value = input1;
+                Dts.Variables["User::DataBaseName"].Value = input2;
+                Dts.Variables["User::ErrorFolderAddress"].Value = input3;
+                Dts.Variables["User::InputCSVFileAddress"].Value = input4;
+            }
+
+            Dts.TaskResult = (int)ScriptResults.Success;
+        }
+
+        #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+
+	}
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_e96914c8c1744b4d85fba9a9bff39c42</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_e96914c8c1744b4d85fba9a9bff39c42</msb:DisplayName>
+    <msb:ProjectId>{3B7FE81E-56C1-4C54-AB85-9E82C01353CB}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_e96914c8c1744b4d85fba9a9bff39c42.csproj" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_e96914c8c1744b4d85fba9a9bff39c42")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("HP")]
+[assembly: AssemblyProduct("ST_e96914c8c1744b4d85fba9a9bff39c42")]
+[assembly: AssemblyCopyright("Copyright @ HP 2024")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_e96914c8c1744b4d85fba9a9bff39c42.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_e96914c8c1744b4d85fba9a9bff39c42.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_e96914c8c1744b4d85fba9a9bff39c42.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_e96914c8c1744b4d85fba9a9bff39c42.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_e96914c8c1744b4d85fba9a9bff39c42.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <BinaryItem
+            Name="ST_e96914c8c1744b4d85fba9a9bff39c42.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDADgAo2YAAAAAAAAAAOAAIiALATAAABYAAAAIAAAAAAAA1jUA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAIQ1AABPAAAAAEAAAIAEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAA3BUAAAAgAAAAFgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAIAEAAAAQAAAAAYAAAAYAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAHgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAC4
+NQAAAAAAAEgAAAACAAUA5CMAAOgQAAABAAAAAAAAAMw0AAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwAwATAwAAAQAAEXMKAAAGCgZzEAAACn0HAAAEBnsHAAAE
+cgEAAHBvEQAACnMSAAAKJXJTAABwbxEAAAolF28TAAAKJR8ybxQAAAolHxRvFQAACgtzEgAACiVy
+bwAAcG8RAAAKJRdvEwAACiUfMm8UAAAKJR8ybxUAAAoMcxIAAAolcpEAAHBvEQAACiUXbxMAAAol
+HzJvFAAACiUfUG8VAAAKDXMSAAAKJXK/AABwbxEAAAolF28TAAAKJR8ybxQAAAolH25vFQAAChME
+cxYAAAolIPoAAABvFAAACiUfFG8VAAAKJSD0AQAAbxcAAAolcvUAAHBvEQAAChMFcxYAAAolIPoA
+AABvFAAACiUfMm8VAAAKJSD0AQAAbxcAAAolclkBAHBvEQAAChMGcxYAAAolIPoAAABvFAAACiUf
+UG8VAAAKJSD0AQAAbxcAAAolcskBAHBvEQAAChMHcxYAAAolIPoAAABvFAAACiUfbm8VAAAKJSD0
+AQAAbxcAAAolciMCAHBvEQAAChMIcxgAAAolcoUCAHBvEQAACiUfZG8UAAAKJSC+AAAAbxUAAAol
+H2RvFwAAChMJEQkG/gYLAAAGcxkAAApvGgAACgZ7BwAABG8bAAAKB28cAAAKBnsHAAAEbxsAAAoI
+bxwAAAoGewcAAARvGwAACglvHAAACgZ7BwAABG8bAAAKEQRvHAAACgZ7BwAABG8bAAAKEQVvHAAA
+CgZ7BwAABG8bAAAKEQZvHAAACgZ7BwAABG8bAAAKEQdvHAAACgZ7BwAABG8bAAAKEQhvHAAACgZ7
+BwAABG8bAAAKEQlvHAAACgZ7BwAABG8dAAAKF0CUAAAAEQVvHgAAChMKEQZvHgAAChMLEQdvHgAA
+ChMMEQhvHgAAChMNAigfAAAKbyAAAApykwIAcG8hAAAKEQpvIgAACgIoHwAACm8gAAAKcrUCAHBv
+IQAAChELbyIAAAoCKB8AAApvIAAACnLbAgBwbyEAAAoRDG8iAAAKAigfAAAKbyAAAApyDQMAcG8h
+AAAKEQ1vIgAACgIoHwAAChZvIwAACioeAigkAAAKKh4CKCUAAAoqrn4BAAAELR5yQQMAcNADAAAC
+KCYAAApvJwAACnMoAAAKgAEAAAR+AQAABCoafgIAAAQqHgKAAgAABCoafgMAAAQqHgIoKQAACiou
+cwgAAAaAAwAABCo2AnsHAAAEF28qAAAKKgBCU0pCAQABAAAAAAAMAAAAdjQuMC4zMDMxOQAAAAAF
+AGwAAACoBAAAI34AABQFAABQBgAAI1N0cmluZ3MAAAAAZAsAALQDAAAjVVMAGA8AABAAAAAjR1VJ
+RAAAACgPAADAAQAAI0Jsb2IAAAAAAAAAAgAAAVcdogEJAwAAAPoBMwAWAAABAAAAJgAAAAYAAAAH
+AAAACwAAAAMAAAAqAAAAAgAAABEAAAABAAAAAgAAAAMAAAAEAAAAAQAAAAUAAAABAAAAAgAAAAAA
+wgMBAAAAAAAGAEkC2QQGANgC2QQGAJUBxgQPAE0FAAAGAMIBUgQGACwCUgQGAA0CUgQGAL8CUgQG
+AGkCUgQGAIICUgQGANkBUgQGAPQBEwMKAJ0CawMKABQBawMOAJQDuQUOADoGuQUOAHYEuQUGAAwE
++wMGAF0B2QQGAOwF+wMOAAcEuQUGAKIF+wMGAHgBxgQGAJwE+QQGAH0EPQQSAEgBrAMSAKkBrAMS
+ADABKAQOAOoDuQUGAKwE+wN3AGQEAAAOAAwGuQUKAJoDawMWAI8FvwAWAJIAvwAGAN8A+wMGAJsA
++wMGAEYGUgQAAAAARQAAAAAAAQABAAEAEAAdBCEAOQABAAEAAAAQAAAFXAVRAAEAAwAAARAAmQVc
+BXEAAwAHAAMBAADeBQAASQAEAAoAAwEQAAEAAABRAAcACgARABEErgARAAQBsgARAIIAtgAGBm0A
+ugBWgM4FvQBWgOQAvQAGAAIEwQBQIAAAAACGACMEBgABAG8jAAAAAIYYuQQGAAEAdyMAAAAAgxi5
+BAYAAQB/IwAAAACTCJgExQABAKsjAAAAAJMI7ADKAAEAsiMAAAAAkwj4AM8AAQC6IwAAAACWCPwF
+1QACAMEjAAAAAIYYuQQGAAIAySMAAAAAkRi/BNoAAgB3IwAAAACGGLkEBgACANUjAAAAAIMAFgDe
+AAIAAAABAAADAAABAJEEAAACABEDCQC5BAEAEQC5BAYAGQC5BAoAKQC5BBAAMQC5BBAAOQC5BBAA
+QQC5BBAASQC5BBAAUQC5BBAAWQC5BBAAYQC5BBAAaQC5BAYAmQC5BAYAuQC5BAYA2QC5BBUAqQC5
+BAYA6QAxBhAAeQC5BAYA6QAGAzYA6QDzBQEA6QCJBAEAgQC5BAYA6QA4AwEAiQC5BAYA8QC5BDsA
+6QBCA0EA6QCsBUcA+QB+AEwAqQAtA1IA6QAoBlgAcQDWBVwACQGLBWIAEQHyA2gAGQH2Am8ACQEZ
+BgEAcQC5BAYAoQC5BAYAIQGtAHQAIQFCBn0AwQC5BIMA4QC5BAYAqQAIBosACAAUAKQACAAYAKkA
+KQB7ABwBLgALAPQALgATAP0ALgAbABwBLgAjACUBLgArAE4BLgAzAE4BLgA7AFQBLgBDACUBLgBL
+AFwBLgBTAE4BLgBbAHUBQwBjAKkASQB7ABwBYQBrAKkAYwBzAKkAwwBrAKkAGwADAAEABAADAAAA
+nATlAAAADAHqAAAAAAbvAAIABAADAAIABQAFAAEABgAFAAIABwAHAASAAAABAAAADCNEoAAAAAAA
+ACEAAAAEAAAAAAAAAAAAAACSAHUAAAAAABAAAAAAAAAAAAAAAJsATAMAAAAABAAAAAAAAAAAAAAA
+kgC5BQAAAAAEAAAAAAAAAAAAAACSAPsDAAAAABAAAAAAAAAAAAAAAJsATgAAAAAAAAAAAAEAAAAK
+BQAABQACAAYAAgAAAAAAADw+Y19fRGlzcGxheUNsYXNzMF8wADxNYWluPmJfXzAAU1RfZTk2OTE0
+YzhjMTc0NGI0ZDg1ZmJhOWE5YmZmMzljNDIAPE1vZHVsZT4ATWljcm9zb2Z0LlNxbFNlcnZlci5N
+YW5hZ2VkRFRTAHZhbHVlX18AbXNjb3JsaWIAQWRkAGRlZmF1bHRJbnN0YW5jZQBWYXJpYWJsZQBS
+dW50aW1lVHlwZUhhbmRsZQBHZXRUeXBlRnJvbUhhbmRsZQBNaWNyb3NvZnQuU3FsU2VydmVyLkR0
+cy5SdW50aW1lAFR5cGUARmFpbHVyZQBnZXRfQ3VsdHVyZQBzZXRfQ3VsdHVyZQByZXNvdXJjZUN1
+bHR1cmUAVlNUQVJUU2NyaXB0T2JqZWN0TW9kZWxCYXNlAEFwcGxpY2F0aW9uU2V0dGluZ3NCYXNl
+AEVkaXRvckJyb3dzYWJsZVN0YXRlAENvbXBpbGVyR2VuZXJhdGVkQXR0cmlidXRlAERlYnVnZ2Vy
+Tm9uVXNlckNvZGVBdHRyaWJ1dGUARGVidWdnYWJsZUF0dHJpYnV0ZQBFZGl0b3JCcm93c2FibGVB
+dHRyaWJ1dGUAQXNzZW1ibHlUaXRsZUF0dHJpYnV0ZQBBc3NlbWJseVRyYWRlbWFya0F0dHJpYnV0
+ZQBUYXJnZXRGcmFtZXdvcmtBdHRyaWJ1dGUAQXNzZW1ibHlDb25maWd1cmF0aW9uQXR0cmlidXRl
+AEFzc2VtYmx5RGVzY3JpcHRpb25BdHRyaWJ1dGUAQ29tcGlsYXRpb25SZWxheGF0aW9uc0F0dHJp
+YnV0ZQBBc3NlbWJseVByb2R1Y3RBdHRyaWJ1dGUAQXNzZW1ibHlDb3B5cmlnaHRBdHRyaWJ1dGUA
+U1NJU1NjcmlwdFRhc2tFbnRyeVBvaW50QXR0cmlidXRlAEFzc2VtYmx5Q29tcGFueUF0dHJpYnV0
+ZQBSdW50aW1lQ29tcGF0aWJpbGl0eUF0dHJpYnV0ZQBzZXRfVmFsdWUAdmFsdWUAc2V0X0F1dG9T
+aXplAFN5c3RlbS5SdW50aW1lLlZlcnNpb25pbmcAU2hvd0RpYWxvZwBzZXRfV2lkdGgAYWRkX0Ns
+aWNrAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuU2NyaXB0VGFzawBNaWNyb3NvZnQuU3FsU2VydmVyLkR0
+cy5UYXNrcy5TY3JpcHRUYXNrAExhYmVsAFNjcmlwdE9iamVjdE1vZGVsAFN5c3RlbS5Db21wb25l
+bnRNb2RlbABTVF9lOTY5MTRjOGMxNzQ0YjRkODVmYmE5YTliZmYzOWM0Mi5kbGwAQ29udHJvbABn
+ZXRfSXRlbQBTeXN0ZW0AaW5wdXRGb3JtAEVudW0AcmVzb3VyY2VNYW4AU2NyaXB0TWFpbgBTeXN0
+ZW0uQ29uZmlndXJhdGlvbgBTeXN0ZW0uR2xvYmFsaXphdGlvbgBTeXN0ZW0uUmVmbGVjdGlvbgBD
+b250cm9sQ29sbGVjdGlvbgBCdXR0b24AQ3VsdHVyZUluZm8Ac2V0X1RvcABzZW5kZXIAZ2V0X1Jl
+c291cmNlTWFuYWdlcgBFdmVudEhhbmRsZXIALmN0b3IALmNjdG9yAFN5c3RlbS5EaWFnbm9zdGlj
+cwBTeXN0ZW0uUnVudGltZS5Db21waWxlclNlcnZpY2VzAFN5c3RlbS5SZXNvdXJjZXMAU1RfZTk2
+OTE0YzhjMTc0NGI0ZDg1ZmJhOWE5YmZmMzljNDIuUHJvcGVydGllcy5SZXNvdXJjZXMucmVzb3Vy
+Y2VzAERlYnVnZ2luZ01vZGVzAFNUX2U5NjkxNGM4YzE3NDRiNGQ4NWZiYTlhOWJmZjM5YzQyLlBy
+b3BlcnRpZXMAZ2V0X1ZhcmlhYmxlcwBTZXR0aW5ncwBFdmVudEFyZ3MAZ2V0X0NvbnRyb2xzAFN5
+c3RlbS5XaW5kb3dzLkZvcm1zAFN1Y2Nlc3MAZ2V0X0R0cwBTY3JpcHRSZXN1bHRzAE9iamVjdABz
+ZXRfTGVmdABnZXRfRGVmYXVsdABzZXRfRGlhbG9nUmVzdWx0AHNldF9UYXNrUmVzdWx0AGdldF9U
+ZXh0AHNldF9UZXh0AFRleHRCb3gAZ2V0X0Fzc2VtYmx5AAAAUVAAbABlAGEAcwBlACAAZgBpAGwA
+bAAgAGkAbgAgAHQAaABlACAAZgBvAGwAbABvAHcAaQBuAGcAIABpAG4AZgBvAHIAbQBhAHQAaQBv
+AG4AABtTAGUAdgBlAHIAIABOAGEAbQBlADoALQAgAAEhRABhAHQAYQBiAGEAcwBlACAATgBhAG0A
+ZQA6AC0AIAABLUUAcgByAG8AcgAgAE8AdQB0AHAAdQB0ACAARgBvAGwAZABlAHIAOgAtACAAATVJ
+AG4AcAB1AHQAIABDAFMAVgAgAEYAaQBsAGUAIABMAG8AYwBhAHQAaQBvAG4AOgAtACAAAWNQAGwA
+ZQBhAHMAZQAgAGUAbgB0AGUAcgAgAHQAaABlACAAcwBlAHIAdgBlAHIAIABuAGEAbQBlACAAeQBv
+AHUAIAB3AGEAbgB0ACAAdABvACAAdwBvAHIAawAgAG8AbgAuAABvUABsAGUAYQBzAGUAIABlAG4A
+dABlAHIAIAB0AGgAZQAgAGQAYQB0AGEAYgBhAHMAZQAgAG4AYQBtAGUAIAB0AGgAYQB0ACAAeQBv
+AHUAIAB3AGEAbgB0ACAAdABvACAAdwBvAHIAawAgAG8AbgAAWUYAbwByACAAZQB4AGEAbQBwAGwA
+ZQA6ACAAQwA6AFwAVQBzAGUAcgBzAFwAUwBTAEkAUwBfAFAAcgBvAGoAZQBjAHQAXABFAHIAcgBv
+AHIATABvAGcAcwAAYUYAbwByACAAZQB4AGEAbQBwAGwAZQA6ACAAQwA6AFwAVQBzAGUAcgBzAFwA
+UwBTAEkAUwBfAFAAcgBvAGoAZQBjAHQAXABJAG4AcAB1AHQARABhAHQAYQAuAGMAcwB2AAANUwB1
+AGIAbQBpAHQAACFVAHMAZQByADoAOgBTAGUAcgB2AGUAcgBOAGEAbQBlAAAlVQBzAGUAcgA6ADoA
+RABhAHQAYQBCAGEAcwBlAE4AYQBtAGUAADFVAHMAZQByADoAOgBFAHIAcgBvAHIARgBvAGwAZABl
+AHIAQQBkAGQAcgBlAHMAcwAAM1UAcwBlAHIAOgA6AEkAbgBwAHUAdABDAFMAVgBGAGkAbABlAEEA
+ZABkAHIAZQBzAHMAAHFTAFQAXwBlADkANgA5ADEANABjADgAYwAxADcANAA0AGIANABkADgANQBm
+AGIAYQA5AGEAOQBiAGYAZgAzADkAYwA0ADIALgBQAHIAbwBwAGUAcgB0AGkAZQBzAC4AUgBlAHMA
+bwB1AHIAYwBlAHMAAAC1Kr/uZdpfSZdlMpwq5MskAAQgAQEIAyAAAQUgAQEREQQgAQEOBSABARFp
+GgcOEhgSPRI9Ej0SPRJBEkESQRJBEkUODg4OBCABAQIFIAIBHBgFIAEBEnkEIAASfQUgAQESdQUg
+ABGAgQMgAA4FIAASgIUFIAASgIkGIAESgI0cBCABARwIAAESgJERgJUFIAASgJkHIAIBDhKAmQYg
+AQERgIEIt3pcVhk04IkIiYRdzYCAzJEEAAAAAAQBAAAAAwYSYQMGEmUDBhIQAgYIAwYRFAMGElUE
+AAASYQQAABJlBQABARJlBAAAEhADAAABBiACARwSWQQIABJhBAgAEmUECAASEAgBAAgAAAAAAB4B
+AAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRocm93cwEIAQACAAAAAAAoAQAjU1RfZTk2OTE0YzhjMTc0
+NGI0ZDg1ZmJhOWE5YmZmMzljNDIAAAUBAAAAAAcBAAJIUAAAGAEAE0NvcHlyaWdodCBAIEhQIDIw
+MjQAAEkBABouTkVURnJhbWV3b3JrLFZlcnNpb249djQuNwEAVA4URnJhbWV3b3JrRGlzcGxheU5h
+bWUSLk5FVCBGcmFtZXdvcmsgNC43ALQAAADOyu++AQAAAJEAAABsU3lzdGVtLlJlc291cmNlcy5S
+ZXNvdXJjZVJlYWRlciwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFs
+LCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5I1N5c3RlbS5SZXNvdXJjZXMuUnVudGlt
+ZVJlc291cmNlU2V0AgAAAAAAAAAAAAAAUEFEUEFEULQAAACsNQAAAAAAAAAAAADGNQAAACAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAuDUAAAAAAAAAAAAAAABfQ29yRGxsTWFpbgBtc2NvcmVlLmRsbAAA
+AAAA/yUAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAAAABI
+AAAAWEAAACIEAAAAAAAAAAAAACIENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBPAAAA
+AAC9BO/+AAABAAAAAQBEoAwjAAABAESgDCM/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAARAAA
+AAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBvAG4A
+AAAAAAAAsASCAwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAABeAwAAAQAwADAAMAAw
+ADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAJgADAAEAQwBvAG0AcABhAG4A
+eQBOAGEAbQBlAAAAAABIAFAAAAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBu
+AAAAAABTAFQAXwBlADkANgA5ADEANABjADgAYwAxADcANAA0AGIANABkADgANQBmAGIAYQA5AGEA
+OQBiAGYAZgAzADkAYwA0ADIAAAA+AA8AAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAw
+AC4AOAA5ADcAMgAuADQAMQAwADIAOAAAAAAAcAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUA
+AABTAFQAXwBlADkANgA5ADEANABjADgAYwAxADcANAA0AGIANABkADgANQBmAGIAYQA5AGEAOQBi
+AGYAZgAzADkAYwA0ADIALgBkAGwAbAAAAEwAFAABAEwAZQBnAGEAbABDAG8AcAB5AHIAaQBnAGgA
+dAAAAEMAbwBwAHkAcgBpAGcAaAB0ACAAQAAgAEgAUAAgADIAMAAyADQAAAAqAAEAAQBMAGUAZwBh
+AGwAVAByAGEAZABlAG0AYQByAGsAcwAAAAAAAAAAAHgAKAABAE8AcgBpAGcAaQBuAGEAbABGAGkA
+bABlAG4AYQBtAGUAAABTAFQAXwBlADkANgA5ADEANABjADgAYwAxADcANAA0AGIANABkADgANQBm
+AGIAYQA5AGEAOQBiAGYAZgAzADkAYwA0ADIALgBkAGwAbAAAAGgAJAABAFAAcgBvAGQAdQBjAHQA
+TgBhAG0AZQAAAAAAUwBUAF8AZQA5ADYAOQAxADQAYwA4AGMAMQA3ADQANABiADQAZAA4ADUAZgBi
+AGEAOQBhADkAYgBmAGYAMwA5AGMANAAyAAAAQgAPAAEAUAByAG8AZAB1AGMAdABWAGUAcgBzAGkA
+bwBuAAAAMQAuADAALgA4ADkANwAyAC4ANAAxADAAMgA4AAAAAABGAA8AAQBBAHMAcwBlAG0AYgBs
+AHkAIABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgA4ADkANwAyAC4ANAAxADAAMgA4AAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAwAAADYNQAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
+        </ScriptProject>
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -4206,6 +4833,14 @@ where [refTable].[UserID] = ?</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\Incremental Load" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{302E22B2-125F-4188-82D6-82122464E350}"
+      DTS:From="Package\Initial Backup"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\Initial Setup of DB Tables" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
@@ -4233,23 +4868,23 @@ where [refTable].[UserID] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
       DTS:CreationName=""
-      DTS:DTSID="{E145C611-6331-4B5F-B3BB-14676354660C}"
+      DTS:DTSID="{0D082EBD-0E0C-44C2-A60C-9B5BE99F972D}"
       DTS:From="Package\Truncate Stg Table"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 5"
-      DTS:To="Package\Production Database Backup" />
+      DTS:To="Package\Backup after pushing to production" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
       DTS:CreationName=""
-      DTS:DTSID="{836266FE-6499-4534-A6AB-A28E9040EDB1}"
+      DTS:DTSID="{1E001FFB-6251-4298-A809-E0F937E57AB8}"
       DTS:From="Package\Data Cleaning"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
-      DTS:To="Package\Staging Database Backup After Cleanup" />
+      DTS:To="Package\Backup after data cleaning" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
       DTS:CreationName=""
-      DTS:DTSID="{1BADEFC3-D774-4C86-A6ED-E42103E08CE8}"
+      DTS:DTSID="{DDDB3BF0-3CD2-43EF-83C1-50E57E09A9C9}"
       DTS:From="Package\Data Extraction and Transformation"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 7"
@@ -4257,11 +4892,11 @@ where [refTable].[UserID] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
       DTS:CreationName=""
-      DTS:DTSID="{BB2DFBCA-8F0F-4A20-893C-195DAA1E5FB6}"
-      DTS:From="Package\Backup Initial State of Database"
+      DTS:DTSID="{DFFB2062-C99B-4E31-BA88-1AE80AE67793}"
+      DTS:From="Package\User Input"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 8"
-      DTS:To="Package\Initial Setup of DB Tables" />
+      DTS:To="Package\Initial Backup" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
       DTS:CreationName=""
@@ -4282,11 +4917,19 @@ where [refTable].[UserID] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="212.8,41.6"
-          Id="Package\Production Database Backup"
-          TopLeft="558.624969778583,638.466665046645" />
+          Size="201.6,41.6"
+          Id="Package\Backup after data cleaning"
+          TopLeft="748.958292412056,427.733330753911" />
+        <NodeLayout
+          Size="207.2,41.6"
+          Id="Package\Backup after data extraction"
+          TopLeft="99.7916612142908,248.933332236477" />
+        <NodeLayout
+          Size="238.4,41.6"
+          Id="Package\Backup after pushing to production"
+          TopLeft="537.291637310346,713.666662466064" />
         <NodeLayout
           Size="132.8,41.6"
           Id="Package\Data Cleaning\Date Check"
@@ -4326,7 +4969,9 @@ where [refTable].[UserID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4348,7 +4993,9 @@ where [refTable].[UserID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4370,7 +5017,9 @@ where [refTable].[UserID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4392,50 +5041,64 @@ where [refTable].[UserID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43.2"
           IsExpanded="False"
           PanelSize="210.4,432"
-          Size="210.4,43.2"
+          Size="168,43.2"
           Id="Package\Data Cleaning"
-          TopLeft="428.958309896084,278.033331399924" />
+          TopLeft="458.124974969154,351.766664287282" />
         <NodeLayout
           Size="242.4,41.6"
           Id="Package\Data Extraction and Transformation"
-          TopLeft="416.12497756444,180.466666782333" />
+          TopLeft="416.12497756444,251.599999687771" />
         <NodeLayout
           Size="158.4,41.6"
           Id="Package\Incremental Load"
-          TopLeft="575.624968549237,472.899999109209" />
+          TopLeft="575.624968549237,544.033332014648" />
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Initial Backup"
+          TopLeft="476.399985247851,83.1999994214376" />
+        <NodeLayout
+          Size="195.2,41.6"
+          Id="Package\Initial Setup of DB Tables"
+          TopLeft="442.611790785005,166.333332281676" />
         <NodeLayout
           Size="236,41.6"
           Id="Package\Output Errors From Data Cleaning"
-          TopLeft="243.624986989424,474.999999054968" />
+          TopLeft="243.624986989424,546.133331960407" />
         <NodeLayout
           Size="174.4,41.6"
           Id="Package\Truncate Error Table"
-          TopLeft="274.458318638098,564.66666651113" />
+          TopLeft="274.458318638098,635.79999941657" />
         <NodeLayout
           Size="166.4,41.6"
           Id="Package\Truncate Stg Table"
-          TopLeft="577.791635398029,560.999999163448" />
+          TopLeft="577.791635398029,632.133332068888" />
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\User Input"
+          TopLeft="483.966651413673,0.866666660639957" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="535.741643730262,222.066666782333">
+          TopLeft="539.724976266797,293.199999687771">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,55.9666646175917"
+              EndConnector="0,58.5666645995109"
               Start="0,0"
-              End="0,48.4666646175917">
+              End="0,51.0666645995109">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.4666646175917" />
+                    End="0,51.0666645995109" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4446,30 +5109,52 @@ where [refTable].[UserID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="534.158309896084,321.233331399924">
+          TopLeft="542.124974969154,394.966664287282">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="120.666658653153,151.666667709285"
+              EndConnector="112.699993580083,149.066667727366"
               Start="0,0"
-              End="120.666658653153,144.166667709285">
+              End="112.699993580083,141.566667727366">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,71.8333338546423" />
+                    End="0,70.5333338636831" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,71.8333338546423"
-                    Point2="0,75.8333338546423"
-                    Point3="4,75.8333338546423" />
+                    Point1="0,70.5333338636831"
+                    Point2="0,74.5333338636831"
+                    Point3="4,74.5333338636831" />
                   <mssgle:LineSegment
-                    End="116.666658653153,75.8333338546423" />
+                    End="108.699993580083,74.5333338636831" />
                   <mssgle:CubicBezierSegment
-                    Point1="116.666658653153,75.8333338546423"
-                    Point2="120.666658653153,75.8333338546423"
-                    Point3="120.666658653153,79.8333338546423" />
+                    Point1="108.699993580083,74.5333338636831"
+                    Point2="112.699993580083,74.5333338636831"
+                    Point3="112.699993580083,78.5333338636831" />
                   <mssgle:LineSegment
-                    End="120.666658653153,144.166667709285" />
+                    End="112.699993580083,141.566667727366" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="543.305888016428,124.799999421438">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.5333328602384"
+              Start="0,0"
+              End="0,34.0333328602384">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.0333328602384" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4480,30 +5165,30 @@ where [refTable].[UserID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="483.558309896084,321.233331399924">
+          TopLeft="502.124974969154,394.966664287282">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-121.93332290666,153.766667655044"
+              EndConnector="-140.49998797973,151.166667673125"
               Start="0,0"
-              End="-121.93332290666,146.266667655044">
+              End="-140.49998797973,143.666667673125">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.5385485229373" />
+                    End="0,47.9635420126368" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,48.5385485229373"
-                    Point2="0,52.5385485229373"
-                    Point3="-4,52.5385485229373" />
+                    Point1="0,47.9635420126368"
+                    Point2="0,51.9635420126368"
+                    Point3="-4,51.9635420126368" />
                   <mssgle:LineSegment
-                    End="-117.93332290666,52.5385485229373" />
+                    End="-136.49998797973,51.9635420126368" />
                   <mssgle:CubicBezierSegment
-                    Point1="-117.93332290666,52.5385485229373"
-                    Point2="-121.93332290666,52.5385485229373"
-                    Point3="-121.93332290666,56.5385485229373" />
+                    Point1="-136.49998797973,51.9635420126368"
+                    Point2="-140.49998797973,51.9635420126368"
+                    Point3="-140.49998797973,55.9635420126368" />
                   <mssgle:LineSegment
-                    End="-121.93332290666,146.266667655044" />
+                    End="-140.49998797973,143.666667673125" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4514,7 +5199,7 @@ where [refTable].[UserID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="657.908301973633,514.499999109209">
+          TopLeft="657.908301973633,585.633332014649">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4536,7 +5221,7 @@ where [refTable].[UserID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="361.641652813761,516.599999054968">
+          TopLeft="361.641652813761,587.733331960408">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4558,18 +5243,18 @@ where [refTable].[UserID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="663.008302588306,602.599999163448">
+          TopLeft="658.741636354187,673.733332068888">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,35.866665883197"
+              EndConnector="0,39.9333303971762"
               Start="0,0"
-              End="0,28.366665883197">
+              End="0,32.4333303971762">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.366665883197" />
+                    End="0,32.4333303971762" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4578,36 +5263,32 @@ where [refTable].[UserID] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="264.8,41.6"
-          Id="Package\Staging Database Backup After Cleanup"
-          TopLeft="678.958296236687,361.69999749591" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="584.758309896084,321.233331399924">
+          TopLeft="582.124974969154,394.966664287282">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="226.599986340603,40.4666660959853"
+              EndConnector="267.633317442902,32.766666466629"
               Start="0,0"
-              End="226.599986340603,32.9666660959853">
+              End="267.633317442902,25.266666466629">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,9.8265329714693" />
+                    End="0,7.26354159790371" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,9.8265329714693"
-                    Point2="0,13.8265329714693"
-                    Point3="4,13.8265329714693" />
+                    Point1="0,7.26354159790371"
+                    Point2="0,11.2635415979037"
+                    Point3="4,11.2635415979037" />
                   <mssgle:LineSegment
-                    End="222.599986340603,13.8265329714693" />
+                    End="263.633317442902,11.2635415979037" />
                   <mssgle:CubicBezierSegment
-                    Point1="222.599986340603,13.8265329714693"
-                    Point2="226.599986340603,13.8265329714693"
-                    Point3="226.599986340603,17.8265329714693" />
+                    Point1="263.633317442902,11.2635415979037"
+                    Point2="267.633317442902,11.2635415979037"
+                    Point3="267.633317442902,15.2635415979037" />
                   <mssgle:LineSegment
-                    End="226.599986340603,32.9666660959853" />
+                    End="267.633317442902,25.266666466629" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4616,28 +5297,20 @@ where [refTable].[UserID] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="207.2,41.6"
-          Id="Package\Backup after data extraction"
-          TopLeft="105.291661214291,180.33333537754" />
-        <NodeLayout
-          Size="226.4,41.6"
-          Id="Package\Backup Initial State of Database"
-          TopLeft="420.29164400345,15.3333374205887" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="416.12497756444,201.200001079937">
+          TopLeft="416.12497756444,271.066665962124">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-103.633316350149,0"
+              EndConnector="-109.133316350149,0"
               Start="0,0"
-              End="-96.1333163501493,0">
+              End="-101.633316350149,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-96.1333163501493,0" />
+                    End="-101.633316350149,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4646,24 +5319,20 @@ where [refTable].[UserID] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="195.2,41.6"
-          Id="Package\Initial Setup of DB Tables"
-          TopLeft="442.611790785005,95.1999993762374" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="536.851717394228,56.9333374205887">
+          TopLeft="546.783318330762,42.46666666064">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,38.2666619556487"
+              EndConnector="0,40.7333327607976"
               Start="0,0"
-              End="0,30.7666619556487">
+              End="0,33.2333327607976">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.7666619556487" />
+                    End="0,33.2333327607976" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4674,18 +5343,18 @@ where [refTable].[UserID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="538.768384174723,136.799999376237">
+          TopLeft="538.768384174723,207.933332281676">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,43.6666674060952"
+              EndConnector="0,43.6666674060954"
               Start="0,0"
-              End="0,36.1666674060952">
+              End="0,36.1666674060954">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.1666674060952" />
+                    End="0,36.1666674060954" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4698,79 +5367,79 @@ where [refTable].[UserID] = ?</property>
           Text="Taking Backup of the Database before starting any work on it"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="351.2,60"
+          Size="351.2,40"
           Id="6096d97f-b7da-45f7-aae9-a943993f2298"
-          TopLeft="683.333295997647,1.08333332579997" />
+          TopLeft="665.833296953805,79.149999516358" />
         <AnnotationLayout
-          Text="Creating all the required tables for the project if not already made&#xD;&#xA;"
+          Text="Creating all the required tables for the project if not already made&#xA;"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="376.8,60"
+          Size="376.8,56"
           Id="7321be5b-2020-4e41-acb3-f870494ab881"
-          TopLeft="681.249962778143,84.4999994123976" />
+          TopLeft="681.249962778143,155.633332317836" />
         <AnnotationLayout
           Text="Extracting data from the source and converting it to usable data type"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="392.8,60"
+          Size="392.8,40"
           Id="e19dbd75-b176-4624-b779-a878a1ca4dfb"
-          TopLeft="689.583295656163,168.999998824795" />
+          TopLeft="689.583295656163,240.133331730233" />
         <AnnotationLayout
           Text="Creating a backup after transformation"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="234.4,60"
+          Size="234.4,40"
           Id="b0630709-f212-4acb-a72b-49f4ecad3729"
-          TopLeft="90.6249950484685,218.833331811594" />
+          TopLeft="90.6249950484685,289.966664717032" />
         <AnnotationLayout
           Text="Cleaning the extracted data using sql scripts"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="261.6,60"
+          Size="261.6,40"
           Id="51e68ebd-559f-4aca-b4c7-fdfdf4f3e6ae"
-          TopLeft="647.916631266062,277.333331404792" />
+          TopLeft="647.916631266062,348.46666431023" />
         <AnnotationLayout
-          Text="Creating a database backup &#xD;&#xA;after cleanup of extracted data"
+          Text="Creating a database backup &#xA;after cleanup of extracted data"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="191.2,60"
+          Size="191.2,56"
           Id="b0a458d8-3e0a-40dc-9965-3c38ed03e042"
-          TopLeft="901.041617435923,405.166663849188" />
+          TopLeft="760.208291797383,468.499996808866" />
         <AnnotationLayout
           Text="Loading the cleaned data in increments to production table"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="343.2,60"
+          Size="343.2,40"
           Id="bfca17da-053f-487d-8938-f45318432a72"
-          TopLeft="730.20829343651,477.749996677786" />
+          TopLeft="730.20829343651,548.883329583225" />
         <AnnotationLayout
-          Text="Cleaning the staging table after loading new data to production,&#xD;&#xA;this will prepare the staging table again for fresh input."
+          Text="Cleaning the staging table after loading new data to production,&#xA;this will prepare the staging table again for fresh input."
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="368.8,60"
+          Size="368.8,56"
           Id="770891c4-ab20-40b1-a56c-5f0ccc6b9e62"
-          TopLeft="748.958292412056,551.416662832184" />
+          TopLeft="748.958292412056,622.549995737624" />
         <AnnotationLayout
-          Text="Outputting all the found errors&#xD;&#xA;with meaningful messages to a flat file"
+          Text="Outputting all the found errors&#xA;with meaningful messages to a flat file"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="232,60"
+          Size="232,56"
           Id="04379cae-8749-4a15-b772-f4afe568a01b"
-          TopLeft="78.1249957314384,409.499997152388" />
+          TopLeft="78.1249957314384,480.633330057826" />
         <AnnotationLayout
-          Text="Cleaning the Error holding table for fresh data, as all&#xD;&#xA;the previous data has been exported to a flat file so it is&#xD;&#xA;of no use now."
+          Text="Cleaning the Error holding table for fresh data, as all&#xA;the previous data has been exported to a flat file so it is&#xA;of no use now."
           ParentId="Package"
           FontInfo="{assembly:Null}"
           Size="322.4,72"
           Id="3a6c6d9d-5724-480f-bfdd-679677aea1f3"
-          TopLeft="193.708322804215,605.583329122183" />
+          TopLeft="193.708322804215,676.716662027623" />
         <AnnotationLayout
           Text="Creating a final backup of the production table"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="276.8,60"
+          Size="276.8,40"
           Id="8205dc40-0b5c-4bd1-9d2f-83a828c98fde"
-          TopLeft="536.416637412791,684.66666190558" />
+          TopLeft="536.416637412791,755.79999481102" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -4831,7 +5500,7 @@ where [refTable].[UserID] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="38.4912804812358,5,173.2841015625,11.6630859375"
+              BoundingBox="38.491280481236,5,173.2841015625,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -5127,15 +5796,24 @@ where [refTable].[UserID] = ?</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Extraction and Transformation\Staging Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Incremental Load">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="236.8,41.6"
-          Id="Package\Incremental Load\Grabbing Data from Staging Table"
-          TopLeft="65.5,65.5" />
         <NodeLayout
           Size="226.4,41.6"
           Id="Package\Incremental Load\Putting data in Production Table"
@@ -5144,6 +5822,10 @@ where [refTable].[UserID] = ?</property>
           Size="258.4,41.6"
           Id="Package\Incremental Load\Lookup Not Present Data in Production"
           TopLeft="237.499996542931,223.499996751547" />
+        <NodeLayout
+          Size="236.8,41.6"
+          Id="Package\Incremental Load\Grabbing Data from Staging Table"
+          TopLeft="65.5,65.5" />
         <EdgeLayout
           Id="Package\Incremental Load.Paths[OLE DB Source Output]"
           TopLeft="183.9,107.1">
@@ -5175,7 +5857,9 @@ where [refTable].[UserID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="83.3999982714655,63.1999983757735,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5218,7 +5902,7 @@ where [refTable].[UserID] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Incremental Load\Grabbing Data from Staging Table">
+    design-time-name="Package\Incremental Load\Putting data in Production Table">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5231,7 +5915,7 @@ where [refTable].[UserID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Incremental Load\Putting data in Production Table">
+    design-time-name="Package\Incremental Load\Grabbing Data from Staging Table">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5247,7 +5931,7 @@ where [refTable].[UserID] = ?</property>
     design-time-name="Package\Output Errors From Data Cleaning">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="152,41.6"
           Id="Package\Output Errors From Data Cleaning\OLE DB Source"
@@ -5287,11 +5971,26 @@ where [refTable].[UserID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Output Errors From Data Cleaning\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
