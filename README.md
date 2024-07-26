@@ -71,7 +71,7 @@ You need the following present in your system as a basic requirement to run the 
 Running the solution is really straightforward. You need to create a database through either of the following two options or use one that you already have:
 
 1. You can create one with a name of your choice in your MS SQL Server instance for which I have provided a script called DatabaseCreationScript.sql that you can modify to create a database with you name preference. Just run the script on the MS SQL Server instance you have or created.
-2. You can load the backup file that I have provided in this repo. That will create a database with the following name:
+2. You can load the backup file that I have provided in this repo  by unzipping PostCompletionBackup.zip. That will create a database with the following name:
 KoreAssignment_bhavya_jain. This backup file also includes three tables as follows:
     1. errorLog.Users
     2. prod.Users
@@ -80,7 +80,7 @@ KoreAssignment_bhavya_jain. This backup file also includes three tables as follo
 You can remove data from all three as they contain final results of the execution of the solution. If you don't remove data from these then you won't be able to see any difference after running the solution because new data won't be added as only incremental updates are done which means that any data that is already present is not added again. After truncating all these you can continue with the next steps. As for if you select the first option and only create a database, don't worry about these tables, as they will be created automatically using the SSIS solution.
 
 
-Download the zip file from this repo, extract it to a location on your system. Then open visual studio 2022 and open the solution provided in this repo under the folder SSIS_Project/KORE_Software_Project.
+Download the zip file of the project from this repo, extract it to a location on your system. Then open visual studio 2022 and open the solution provided in this repo under the folder SSIS_Project/KORE_Software_Project.
 
 1. In the solution explorer, expand SSIS Packages, double click ETL-Project_Solution.dtsx.
 2. Click Start on top in Visual Studio.
@@ -88,7 +88,7 @@ Download the zip file from this repo, extract it to a location on your system. T
     1. Name of the server. Here you should type the server name that you have created or already have present instance of MS SQL. If you selected default instance name then it should be the name of your system.
     2. Database name. Here you should enter the database name that you created earlier or imported (KoreAssignment_bhavya_jain).
     3. Error Output Folder. Here you need to enter the folder location where you need your error logs from ETL process. Enter it in the same format as the example provided as a placeholder text in the input box. You can use the folder provided in this repo for error logs. Just enter the address to that folder based on where it is located in your system to the following string: "Location of the project in your system\SSIS_Project\ErrorLogs"
-    4. Input CSV File location: Here you need to enter the location of the input CSV file, from where you are reading raw data to be processed. In this repo the file I used is located in the following address which you can use by adding the inital path based on the location of SSIS_Project files your system location: "path from you system"/SSIS_Project/KORE_Software_Project/InputData.csv
+    4. Input CSV File location: Here you need to enter the location of the input CSV file, from where you are reading raw data to be processed. In this repo the file I used is located in the following address which you can use by adding the inital path based on the location of SSIS_Project files your system location: "path from you system"\SSIS_Project\KORE_Software_Project\InputData.csv
 
 Now the rest of the process should begin without any other inputs from your side. The ETL process will take the raw data from InputData.csv file and the process will clean that data. At the end you can see cleaned data in prod.Users table in the database you selected. stg.Users and errorLog.Users table would be empty as they are truncated at the end of ETL process as the data in errorLog table is already exported and stg table data is not needed as they would only be there if production table already had them. You will see errorLog files in the selected logging folder and you will see database backup files in the following location: C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\
 
